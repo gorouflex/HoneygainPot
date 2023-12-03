@@ -6,7 +6,11 @@ jobs:
   Manual:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3    
+      - uses: actions/checkout@v3  
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ${{ github.workspace }}/requirements.txt
       - name: Run HoneygainPot
         run: python main.py
         env:

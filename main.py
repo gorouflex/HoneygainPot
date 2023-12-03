@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
 import os
-import git
 import configparser
 from configparser import ConfigParser
 from getpass import getpass
@@ -32,22 +31,6 @@ elif os.getenv('IsJWT') == '1':
     print('IsJWT status: Yes')
 else:
     print('IsJWT status: No')
-fork_url = os.getenv('GITHUB_REPOSITORY')
-original_url = 'https://github.com/gorouflex/HoneygainPot.git'
-def is_fork_outdated(fork_url, original_url, branch='main'):
-    fork_repo = git.Repo.clone_from(fork_url, 'forked_repo', branch=branch)
-    original_repo = git.Repo.clone_from(original_url, 'original_repo', branch=branch)
-
-    fork_commit = fork_repo.head.commit
-    original_commit = original_repo.head.commit
-
-    return fork_commit != original_commit
-
-if is_fork_outdated(fork_url, original_url):
-    print("Your fork is outdated.")
-else:
-    print("Your fork is up to date.")
-
 print('Config folder:', os.path.join(os.getcwd(), 'Config'))
 print('-----------------------------------------')
 print('Starting HoneygainPot 🍯')

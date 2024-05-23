@@ -1,2 +1,2 @@
-# HoneygainPot
-Moved to MrLoLf/HoneygainAutoClaim
+# Moved to MrLoLf/HoneygainAutoClaim
+### Thanks for using this the whole time
